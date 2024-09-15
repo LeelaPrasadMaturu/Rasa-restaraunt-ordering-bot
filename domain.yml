@@ -1,0 +1,104 @@
+version: "3.1"
+
+slots:
+  food_item:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: food_item
+  quantity:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: quantity  # Automatically capture quantity from user response
+  name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: name
+  phone_number:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: phone_number
+  toppings:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: toppings  # Slot to capture extra toppings
+
+entities:
+  - food_item
+  - quantity  # Ensure quantity is included in entities
+  - name
+  - phone_number
+  - toppings  # New entity for toppings
+
+intents:
+  - greet
+  - book_order
+  - provide_info
+  - provide_quantity
+  - provide_name
+  - provide_phone
+  - confirm_order
+  - provide_payment_method
+  - goodbye
+  - ask_for_bill
+  - bot_challenge
+  - provide_additional_items
+  - affirm   # Added intent for 'yes'
+  - deny     # Added intent for 'no'
+  - provide_toppings  # New intent for providing extra toppings
+
+
+actions:
+  - action_check_ingredients
+  - action_generate_bill
+  - action_generate_order_summary
+  - action_session_start
+
+responses: 
+  utter_greet:
+    - text: "Hello! How can I assist you today?"
+
+  utter_ask_food_and_veg:
+    - text: "What would you like to order? We have both veg and non-veg options."
+
+  utter_ask_quantity:
+    - text: "How many servings would you like?"
+
+  utter_ask_name:
+    - text: "May I have your name for the bill?"
+
+  utter_ask_phone:
+    - text: "Can you provide your phone number, please?"
+
+  utter_confirm_order:
+    - text: "Got it! Your order for {quantity} serving(s) of {food_item} with {toppings} has been confirmed."
+  
+  # utter_confirm_ingredients:
+  #   - text: "We have the following ingredients for {food_item}. Would you like to confirm?"
+  
+  utter_ask_additional_items:
+    - text: "Would you like to add any toppings or sides?"
+
+  utter_ask_toppings:
+    - text: "Which toppings would you like to add?"
+
+  utter_ask_payment_method:
+    - text: "How would you like to pay for your order?"
+  
+  utter_goodbye:
+    - text: "Goodbye! Hope to serve you again."
+  
+  utter_iamabot:
+    - text: "I am a bot, here to assist you with your order!"
+
+  utter_order_confirmation:
+    - text: "Thank you, {name}! Your order for {quantity} serving(s) of {food_item} has been placed. You will receive a call at {phone_number} for confirmation."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+

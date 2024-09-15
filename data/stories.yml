@@ -1,0 +1,55 @@
+version: "3.1"
+
+stories:
+  - story: bot initiates conversation
+    steps:
+      - action: action_session_start
+      - action: utter_greet
+
+      # Asking for food preferences
+      - intent: book_order
+      - action: utter_ask_food_and_veg
+
+      # Customer provides food item (e.g., pizza)
+      - intent: provide_info
+        entities:
+          - food_item: "pizza"
+      - action: action_check_ingredients
+
+      # Ask the customer for the quantity after confirming the ingredients
+      - action: utter_ask_quantity
+      - intent: provide_quantity
+
+      # # Optionally ask for additional items
+      # - action: utter_ask_additional_items
+      # - intent: provide_additional_items
+       # Ask for additional items (toppings)
+      # - action: utter_ask_additional_items
+      # - intent: deny  # If they don't want any additional items
+      # - intent: provide_toppings  # If they provide extra toppings
+      # - action: utter_ask_toppings
+
+      # Generate a summary of the order
+      - action: action_generate_order_summary
+
+      # Customer confirms the order
+      - intent: confirm_order
+      - action: utter_confirm_order
+
+      # Ask for customer name
+      - action: utter_ask_name
+      - intent: provide_name
+
+      # Ask for phone number
+      - action: utter_ask_phone
+      - intent: provide_phone
+
+      # Proceed to payment options
+      - action: utter_ask_payment_method
+      - intent: provide_payment_method
+
+      # Generate the bill after payment selection
+      - action: action_generate_bill
+
+      # Confirm the order is placed and provide bill
+      - action: utter_order_confirmation

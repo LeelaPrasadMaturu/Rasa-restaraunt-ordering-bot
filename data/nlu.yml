@@ -1,0 +1,153 @@
+version: "3.1"
+
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - good
+    - hey there
+    - hey dude
+    - goodmorning
+    - goodevening
+
+- intent: book_order
+  examples: |
+    - I want to order [burger](food_item)
+    - I need a [Veg_pizza](food_item)
+    - Can I order [pasta](food_item)
+    - I’d like a [salad](food_item)
+    - I'd like to order a [taco](food_item)
+    - Can I have a [burger](food_item)
+    - Please get me a [Margherita Pizza](food_item)
+    - I would like to have [Chicken Tikka](food_item)
+    - Get me a [Caesar Salad](food_item)
+    - I'd like to order [French Fries](food_item)
+    - May I order [Garlic Bread](food_item)?
+    - I want [Pasta Alfredo](food_item)
+    - Order [Butter Chicken](food_item) for me
+    - Can I get a [Paneer Tikka](food_item)?
+    - I need [Chocolate Cake](food_item)
+    - Please place an order for [Tacos](food_item)
+    - I'd like [Pasta Arrabiata](food_item)
+    - Can I get [Brownie](food_item)?
+    - Get me some [Greek Salad](food_item)
+    - Can I have [Falafel Wrap](food_item)?
+    - Can I place an order for [Chicken Burger](food_item)?
+    - Please get me [Ice Cream](food_item)
+    - I would like to have [Palak Paneer](food_item)
+
+    
+- intent: ask_ingredients
+  examples: |
+    - What are ingredients of [pizza](food_item)
+    - Tell me about [veg pizza](food_item)
+    
+- intent: provide_toppings
+  examples: |
+    - Add [cheese](toppings)
+    - I would like extra [olives](toppings)
+    - Can I get [mushrooms](toppings)?
+    - Add some [pepperoni](toppings) as well
+    - Extra [jalapenos](toppings), please
+    - I want [onions](toppings)
+
+- intent: provide_info
+  examples: |
+    - I want to order a [pizza](food_item)
+    - Can I have [burger](food_item)
+    - I would like [pasta](food_item)
+
+
+- intent: confirm_order
+  examples: |
+   - okay
+   - yes,Please confirm
+   - Please confirm
+   - Looks Great
+   - Good deal
+
+- intent: provide_payment_method
+  examples: |
+   - Can I pay with [card](payment_method)
+   - I'd like to pay with [cash](payment_method)
+   - I will pay with [UPI](payment_method)
+   - I will go ahread with [Paytm](payment_method)
+
+- intent: provide_quantity
+  examples: |
+    - I want 2
+    - Just 1, please
+    - Can I get 3 servings?
+    - Please make it 4
+
+- intent: ask_for_bill
+  examples: |
+    - Please provide Bill
+    - Can you give Bill
+    - Bill ?
+    - Recipt ?
+
+
+- intent: provide_name
+  examples: |
+    - My name is [John](name)
+    - It's [David](name)
+    - I am [Mark](name)
+    - Myself [Ramu](name)
+
+- intent: provide_phone
+  examples: |
+    - My phone number is [1234567890](phone_number)
+    - You can reach me at [9876543210](phone_number)
+    - [9998887777](phone_number)
+
+- intent: affirm
+  examples: |
+    - yes
+    - sure
+    - absolutely
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - I don't think so
+    - not really
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you later
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - am I talking to a bot?
+
+- lookup: food_item
+  examples: |
+    - burger
+    - pizza
+    - Margherita Pizza
+    - Pepperoni Pizza
+    - Veg Burger
+    - Chicken Burger
+    - Pasta Alfredo
+    - Pasta Arrabiata
+    - Paneer Tikka
+    - Chicken Tikka
+    - Greek Salad
+    - Caesar Salad
+    - Chocolate Cake
+    - Brownie
+    - French Fries
+    - Garlic Bread
+    - Tacos
+    - Falafel Wrap
+    - Butter Chicken
+    - Palak Paneer
+    - Ice Cream
